@@ -1,0 +1,107 @@
+{% extends "ta/base.html" %}
+
+{% block title %}
+{% if title %}{{ title }}{% else %}全球股票指數技術指標{% endif %}
+{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block content %}
+<div class="text-center mb-3">
+    <h1 class="display-5 fw-bold text-primary">全球股票指數技術指標</h1>
+</div>
+
+<form id="chart-form" action="{{ url_for('ta.index') }}" method="GET" class="needs-validation" novalidate>
+    <div class="card shadow-sm mb-4">
+        <div class="card-body p-4">
+            <div class="row g-3">
+                <div class="col-12 col-sm-8 mb-3">
+                    <label for="ticker" class="form-label"><i class="fas fa-chart-line me-2"></i>選擇股票指數:</label>
+                    <select name="ticker" id="ticker" class="form-select form-select-lg" required>
+                        <option value="" disabled {% if not current_ticker %}selected{% endif %}>-- 請選擇股票指數 --</option>
+                        {% for ticker_val, name, timezone in ticker_options %}
+                        <option value="{{ ticker_val }}" {% if current_ticker==ticker_val %}selected{% endif %}>
+                            {{ name }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                    <div class="invalid-feedback">請選擇一個股票指數。</div>
+                </div>
+                <div class="col-12 col-sm-4 mb-3">
+                    <label for="timeframe" class="form-label"><i class="fas fa-calendar-alt me-2"></i>選擇時間週期:</label>
+                    <select name="timeframe" id="timeframe" class="form-select form-select-lg" required>
+                        <option value="" disabled {% if not current_timeframe %}selected{% endif %}>-- 請選擇時間週期 --
+                        </option>
+                        {% for timeframe_val, text in timeframe_options %}
+                        <option value="{{ timeframe_val }}" {% if current_timeframe==timeframe_val %}selected{% endif
+                            %}>
+                            {{ text }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                    <div class="invalid-feedback">請選擇一個時間週期。</div>
+                </div>
+                <div class="col-12 mb-3">
+                    <fieldset>
+                        <legend class="form-label"><i class="fas fa-chart-column me-2"></i>選擇技術指標:</legend>
+                        <div class="d-flex flex-wrap">
+                            {% for key, value in indicator_options %}
+                            <div class="form-check form-check-inline me-3 mb-2">
+                                <input class="form-check-input" type="checkbox" name="indicators" value="{{ key }}"
+                                    id="indicator-{{ key }}" {% if key in selected_indicators or (not
+                                    selected_indicators and key=='volume' ) %}checked{% endif %}>
+                                <label class="form-check-label" for="indicator-{{ key }}">{{ value }}</label>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="mt-2">
+                            <button type="button" class="btn btn-sm btn-outline-secondary me-2"
+                                id="select-all-indicators">全選</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary"
+                                id="deselect-all-indicators">全不選</button>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary btn-lg w-100 py-3">
+                <i class="fas fa-search-dollar me-2"></i>顯示圖表
+            </button>
+        </div>
+    </div>
+
+</form>
+
+<hr class="my-4">
+
+{% if script and div %}
+<h4 id="chart-title" class="text-center my-3 fw-bold text-primary">{{ title }}</h4>
+<div class="chart-wrapper">
+    <div class="scroll-handle left-scroll-handle"></div>
+    <div class="scroll-handle right-scroll-handle"></div>
+    <div id="chart-display-area" class="bokeh-chart-container">
+        {{ div|safe }}
+    </div>
+</div>
+{% elif request.args.get('ticker') and request.args.get('timeframe') %}
+{# Error shown via flash #}
+{% endif %}
+
+<div id="loading-overlay" class="d-none">
+    <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+    <p class="mt-3 mb-0">正在載入圖表資料，請稍候...</p>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{% if script %}
+{{ script|safe }}
+{% endif %}
+{% endblock %}

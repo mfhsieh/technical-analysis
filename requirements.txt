@@ -1,0 +1,16 @@
+Flask
+Flask-WTF
+flask-talisman
+python-dotenv
+# pandas, numpy, llvmlite: 配合 PythonAnywhere python 3.12 環境
+pandas==2.2.2
+numpy==1.26.4
+llvmlite==0.43.0
+# pandas-ta: 配合上手動安裝的版本
+pandas-ta==0.3.14b0
+# bokeh: 配合 template 指定的版本
+bokeh==3.8.2
+# yfinance: 太低的版本會抓不到資料
+yfinance>1.0
+# setuptools: pandas_ta 相容性問題
+setuptools<70

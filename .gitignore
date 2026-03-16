@@ -1,0 +1,12 @@
+__pycache__/
+
+.git/
+.memo/
+.tmp/
+.venv/
+# .vscode/
+
+data/
+
+.flaskenv
+.env
