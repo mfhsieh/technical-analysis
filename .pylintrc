@@ -1,17 +1,2 @@
-; [BASIC]
-; good-names=db, df, f, i, j, x, y, z
-
 [FORMAT]
 max-line-length=160
-
-; [MASTER]
-; disable=
-;     C0114,  # missing-module-docstring
-;     C0115,  # missing-class-docstring
-;     C0116,  # missing-function-docstring
-;     C0302,  # too-many-lines
-;     R0903,  # too-few-public-methods
-;     R0913,  # too-many-arguments
-;     R0914,  # too-many-locals
-;     R0915,  # too-many-statements
-;     R0917,  # too-many-positional-arguments
