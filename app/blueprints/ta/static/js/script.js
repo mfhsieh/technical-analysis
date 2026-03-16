@@ -90,6 +90,19 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     });
+
+    // Hide overlay when Bokeh is ready
+    if (overlay && !overlay.classList.contains("d-none")) {
+        const checkBokeh = setInterval(() => {
+            if (window.Bokeh && window.Bokeh.index && Object.keys(window.Bokeh.index).length > 0) {
+                overlay.classList.add("d-none");
+                clearInterval(checkBokeh);
+            }
+        }, 100);
+
+        // Safety timeout (10 seconds)
+        setTimeout(() => clearInterval(checkBokeh), 10000);
+    }
 });
 
 function adjusted_x_range(x_start, x_end, X_MIN, X_MAX, XRANGE_MIN, XRANGE_MAX) {  // 用於 x range 及 slider 的輔助函數

@@ -92,7 +92,7 @@
 {# Error shown via flash #}
 {% endif %}
 
-<div id="loading-overlay" class="d-none">
+<div id="loading-overlay" class="{% if not (script and div) %}d-none{% endif %}">
     <div class="spinner-border text-primary" role="status">
         <span class="visually-hidden">Loading...</span>
     </div>

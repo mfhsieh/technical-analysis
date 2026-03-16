@@ -164,14 +164,20 @@ def create_app(config_name: str | None = None) -> Flask:
             "'self'",
             "https://cdn.jsdelivr.net",
             "https://cdn.bokeh.org",
-            "'unsafe-inline'",  # 允許 inline 腳本，待修正
+            "'unsafe-inline'",
+            "'unsafe-eval'",
         ],
         "style-src": [
             "'self'",
             "https://cdn.jsdelivr.net",
             "https://cdnjs.cloudflare.com",
             "https://cdn.bokeh.org",
-            "'unsafe-inline'",  # 允許 inline 樣式，待修正
+            "'unsafe-inline'",
+        ],
+        "connect-src": [
+            "'self'",
+            "https://cdn.jsdelivr.net",
+            "https://cdn.bokeh.org",
         ],
         "img-src": [
             "'self'",

@@ -132,3 +132,15 @@ input[type="checkbox"]:checked+label {
         display: block;
     }
 }
+
+footer {
+    border-top: 1px solid #dee2e6;
+    padding-top: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* footer links hover effect */
+footer a.text-muted:hover {
+    color: var(--bs-primary) !important;
+    text-decoration: underline !important;
+}

@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="全球股票指數技術指標" />
     <meta name="keywords" content="全球股票指數技術指標, 股票, 指數, 技術指標" />
-    <meta name="author" content="mfhsieh at gmail.com" />
-    <meta name="copyright" content="mfhsieh at gmail.com" />
+    <meta name="author" content="mfhsieh at github (https://github.com/mfhsieh/technical-analysis)" />
+    <meta name="copyright"
+        content="mfhsieh at github (https://github.com/mfhsieh/technical-analysis), CC BY-NC-SA 4.0" />
 
     <title>{% block title %}全球股票指數技術指標{% endblock %}</title>
     <link rel="icon" href="{{ url_for('ta.static', filename='image/favicon.ico') }}" type="image/x-icon">
@@ -50,9 +51,37 @@
 
         {% block content %}{% endblock %}
 
-        <footer class="mt-4 text-center text-muted">
-            <small>author: mfhsieh@gmail.com</small><br /><small>powered by ai-studio, yfinance, pandas-ta and
-                bokeh</small>
+        <footer class="text-muted">
+            <div class="row align-items-center">
+                <!-- Left: Library Credits -->
+                <div class="col-md-4 text-center text-md-start mb-2 mb-md-0">
+                    <small><i class="fas fa-code" title="tech stack"></i>
+                        <a href="https://bokeh.org" target="_blank" rel="noopener noreferrer"
+                            class="text-decoration-none text-muted">bokeh</a> &bull;
+                        <a href="https://github.com/twopirllc/pandas-ta" target="_blank" rel="noopener noreferrer"
+                            class="text-decoration-none text-muted">pandas-ta</a> &bull;
+                        <a href="https://github.com/ranaroussi/yfinance" target="_blank" rel="noopener noreferrer"
+                            class="text-decoration-none text-muted">yfinance</a>
+                    </small>
+                </div>
+                <!-- Center: Author Info -->
+                <div class="col-md-4 text-center mb-2 mb-md-0">
+                    <small><i class="fab fa-github"></i> <a href="https://github.com/mfhsieh/technical-analysis"
+                            target="_blank" rel="noopener noreferrer" class="text-decoration-none text-muted">mfhsieh at
+                            github</a></small>
+                </div>
+                <!-- Right: License Icons -->
+                <div class="col-md-4 text-center text-md-end">
+                    <small><i class="fas fa-copyright" title="license"></i>
+                        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"
+                            rel="noopener noreferrer" class="text-decoration-none text-muted" title="CC BY-NC-SA 4.0">
+                            <i class="fab fa-creative-commons"></i>
+                            <i class="fab fa-creative-commons-by"></i>
+                            <i class="fab fa-creative-commons-nc"></i>
+                            <i class="fab fa-creative-commons-sa"></i>
+                        </a></small>
+                </div>
+            </div>
         </footer>
     </div>
 
