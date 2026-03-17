@@ -1,11 +1,11 @@
 # 股票指數技術分析 (Technical Analysis)
 
-![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)
-![Python 3.12](https://img.shields.io/badge/Python-3.12-blue.svg)
-![Flask](https://img.shields.io/badge/Framework-Flask-lightgrey.svg)
-![Built with Bokeh](https://img.shields.io/badge/Built%20with-Bokeh-orange.svg)
-![Pandas-TA](https://img.shields.io/badge/Indicator-Pandas--TA-blue.svg)
-![yfinance](https://img.shields.io/badge/Data-yfinance-green.svg)
+[![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hant)
+[![Python 3.12](https://img.shields.io/badge/Python-3.12-blue.svg)](https://www.python.org/)
+[![Flask](https://img.shields.io/badge/Framework-Flask-lightgrey.svg)](https://flask.palletsprojects.com/)
+[![Built with Bokeh](https://img.shields.io/badge/Built%20with-Bokeh-orange.svg)](https://bokeh.org/)
+[![Pandas-TA](https://img.shields.io/badge/Indicator-Pandas--TA-blue.svg)](https://www.pandas-ta.dev/)
+[![yfinance](https://img.shields.io/badge/Data-yfinance-green.svg)](https://github.com/ranaroussi/yfinance)
 
 這是基於 [bokeh](https://bokeh.org/)、[pandas-ta](https://www.pandas-ta.dev/) 及 [yfinance](https://github.com/ranaroussi/yfinance) 的股票指數技術分析應用程式，旨在提供直觀且互動性強的股票圖表與技術指標。
 
@@ -133,7 +133,7 @@
 
 ## 📄 授權條款
 
-- 本專案採用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW) 授權（姓名標示－非商業性－相同方式分享 4.0 國際）。
+- 本專案採用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hant) 授權（姓名標示－非商業性－相同方式分享 4.0 國際）。
 
 - 您可以自由重製、散布、傳輸及修改本創作，但不得用於商業目的；若您修改本作品，必須採用相同授權條款散布。
 
