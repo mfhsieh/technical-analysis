@@ -96,8 +96,8 @@
 - [app/](./app/): 應用程式主目錄。
   - [services/](./app/services/): 核心邏輯，包括資料載入 [data_loader.py](./app/services/data_loader.py) 與技術指標計算 [stock_indicators.py](./app/services/stock_indicators.py)。
   - [blueprints/ta/](./app/blueprints/ta/): 前站動態網頁，包含路由 [routes.py](./app/blueprints/ta/routes.py) 與圖表繪製 [chart_plotting.py](./app/blueprints/ta/chart_plotting.py)。
-  - [templates/](./app/templates/) & [static/](./app/static/): 前端 HTML 與靜態檔案。
-- [.flaskenv](./.flaskenv): 環境變數設定檔。
+  - [templates/](./app/blueprints/ta/templates/) & [static/](./app/blueprints/ta/static/): 前端 HTML 與靜態檔案。
+- [.flaskenv](./.flaskenv.example): 環境變數設定檔。
 - [config.py](./config.py): Flask 設定模組，包含開發環境與正式環境設定。
 - [run.py](./run.py): Flask 啟動腳本，初始化 Flask 實例並啟動 Web 伺服器。
 - [requirements.txt](./requirements.txt): 套件依賴清單。
