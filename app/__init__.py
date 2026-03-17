@@ -142,12 +142,7 @@ def create_app(config_name: str | None = None) -> Flask:
         raise ValueError(f"未知的 FLASK_ENV: {config_name}")
 
     # 設定主程式
-    app = Flask(
-        __name__,
-        template_folder="templates",
-        static_folder="static",
-        instance_relative_config=True,
-    )
+    app = Flask(__name__, template_folder="templates", static_folder="static", instance_relative_config=True)
     app.config.from_object(config[config_name])
     config[config_name].init_app(app)
 
