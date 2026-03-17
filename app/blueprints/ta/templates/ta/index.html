@@ -1,7 +1,7 @@
 {% extends "ta/base.html" %}
 
 {% block title %}
-{% if title %}{{ title }}{% else %}全球股票指數技術指標{% endif %}
+{% if title %}{{ title }}{% else %}全球股票指數技術分析{% endif %}
 {% endblock %}
 
 {% block head %}
@@ -9,7 +9,7 @@
 
 {% block content %}
 <div class="text-center mb-3">
-    <h1 class="display-5 fw-bold text-primary">全球股票指數技術指標</h1>
+    <h1 class="display-5 fw-bold text-primary">全球股票指數技術分析</h1>
 </div>
 
 <form id="chart-form" action="{{ url_for('ta.index') }}" method="GET" class="needs-validation" novalidate>

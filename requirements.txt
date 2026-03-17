@@ -6,7 +6,7 @@ python-dotenv
 pandas==2.2.2
 numpy==1.26.4
 llvmlite==0.43.0
-# pandas-ta: 配合上手動安裝的版本
+# pandas-ta: 配合手動安裝的版本
 pandas-ta==0.3.14b0
 # bokeh: 配合 template 指定的版本
 bokeh==3.8.2
