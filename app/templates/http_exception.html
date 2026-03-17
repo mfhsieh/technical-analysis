@@ -1,7 +1,15 @@
 {% extends "exception_base.html" %}
 
+{% block meta_description %}{{ exception.code }} - {{ exception.name }}{% endblock %}
+{% block title %}{{ exception.code }} - {{ exception.name }}{% endblock %}
+{% block header_text %}{{ exception.code }} - {{ exception.name }}{% endblock %}
+
 {% block content %}
-<h2>{{ exception.code }} - {{ exception.name }}</h2>
-<p>{{ exception.description }}</p>
-<p><a href="https://zh.wikipedia.org/zh-tw/HTTP%E7%8B%80%E6%85%8B%E7%A2%BC">維基百科：HTTP 狀態碼</a></p>
+<p class="mb-4 text-secondary">{{ exception.description }}</p>
+<p>
+    <a href="https://zh.wikipedia.org/zh-tw/HTTP%E7%8B%80%E6%85%8B%E7%A2%BC" target="_blank" rel="noopener noreferrer"
+        class="link-secondary small">
+        <i class="fas fa-external-link-alt me-1"></i>維基百科：HTTP 狀態碼
+    </a>
+</p>
 {% endblock %}
