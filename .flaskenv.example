@@ -1,0 +1,12 @@
+FLASK_APP=run.py
+FLASK_ENV=development  # development, production
+FLASK_PORT=5000
+FLASK_DEBUG=1  # 1, 0
+
+SECRET_KEY="!!!_CHANGE_ME_IN_PRODUCTION_!!!"  # 請替換為實際的秘密金鑰
+LOG_LEVEL=DEBUG  # NOTSET, DEBUG, INFO, WARNING, ERROR, CRITICAL
+
+TA_CACHE_DIR="data/ta"  # 存放資料的目錄
+TA_CACHE_SUBDIR_YF="yf"  # 存放 yahoo finance 資料的目錄
+TA_CACHE_SUBDIR_YF_TS="yf/ts"  # 存放 yahoo finance 資料時戳的目錄
+TA_CACHE_DELTA_YF_MIN=3600  # 從 yahoo finance 更新資料的最短間隔 (秒)

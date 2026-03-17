@@ -62,8 +62,9 @@
 
 ## ⚙️ 環境配置
 
-- 本專案使用 [.flaskenv](./.flaskenv) 管理環境變數，請參考 [.flaskenv](./.flaskenv) 檔案自行建立。
-- 請設定適當的 `SECRET_KEY` (可參閱 [config.py](./config.py) 檔案內的說明) 以確保應用程式安全。
+- 本專案使用 `.flaskenv` 管理環境變數，因包含敏感資料（如 `SECRET_KEY`），此檔案已列入 `.gitignore`。
+- 請參考範本檔 [.flaskenv.example](./.flaskenv.example) 建立您自己的 `.flaskenv` 檔案。
+- 請設定適當的 `SECRET_KEY` (可參閱 [config.py](./config.py) 檔案內的說明)。
 
 ## 🚀 啟動方式
 
@@ -111,4 +112,4 @@
 
 ## 📦 Release Notes
 
-- 2026-02-22：1.00 版發佈。
+- 2026-03-17：1.00 版發佈。
