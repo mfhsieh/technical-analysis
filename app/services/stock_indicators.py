@@ -1,6 +1,7 @@
 """
 技術指標計算服務：負責處理股票資料的頻率轉換 (Resample) 與各類技術指標 (MA, KDJ, MACD, RSI...) 的計算邏輯。
 """
+
 # pylint: disable=too-many-lines
 from typing import Literal
 from flask import current_app
@@ -1130,6 +1131,7 @@ def calculation(  # pylint: disable=too-many-return-statements,too-many-branches
         current_app.logger.error("%s, calculation(df, '%s'), 移除空值後無資料", __name__, groupby)
         return pd.DataFrame()
 
+    # 最小資料量檢查：視需求取消註解
     # min_period_needed = 5
     # if len(df) < min_period_needed:
     #     current_app.logger.error("%s, calculation(df, '%s'), 有效資料不足: %i", __name__, groupby, len(df))
@@ -1139,13 +1141,14 @@ def calculation(  # pylint: disable=too-many-return-statements,too-many-branches
         # 計算漲跌幅
         df["Change"] = df["close"] - df["close"].shift()
 
-        # 計算移動平均線
+        # 計算移動平均線 (使用 pandas-ta 實作)
         current_app.logger.info("%s, calculation(df, '%s'), 計算移動平均線...", __name__, groupby)
         df["MA5"] = sma(df["close"], length=5)
         df["MA20"] = sma(df["close"], length=20)
         df["MA60"] = sma(df["close"], length=60)
         df["MA120"] = sma(df["close"], length=120)
         df["MA240"] = sma(df["close"], length=240)
+        # 下列為自定義實作版本，保留作為邏輯參考
         # df["MA5"] = sma_by_define(df["close"], length=5)
         # df["MA20"] = sma_by_define(df["close"], length=20)
         # df["MA60"] = sma_by_define(df["close"], length=60)

@@ -1,2 +1,2 @@
 [FORMAT]
-max-line-length=160
+max-line-length=160  # 加大程式碼單行最大長度，個人習慣

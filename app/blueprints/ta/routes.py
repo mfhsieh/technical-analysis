@@ -29,8 +29,8 @@ TICKER_OPTIONS = [
     ("^KS11", "南韓: KOSPI 綜合指數", "Asia/Seoul"),
     ("^BSESN", "印度: S&P BSE Sensex 指數", "Asia/Kolkata"),
     ("^BVSP", "巴西: 巴西 Bovespa 指數", "America/Sao_Paulo"),
-    # ("000001.SS", "中國: 上海綜合指數", "Asia/Shanghai"),
-    # ("399001.SZ", "中國: 深證成份指數", "Asia/Shanghai"),
+    # ("000001.SS", "中國: 上海綜合指數", "Asia/Shanghai"),  # yfinance 資料來源易有缺漏
+    # ("399001.SZ", "中國: 深證成份指數", "Asia/Shanghai"),  # yfinance 資料來源易有缺漏
     ("2330.TW", "台灣: 台積電", "Asia/Taipei"),
     ("TSM", "美國: 台積電 (ADR)", "America/New_York"),
     ("USDTWD=X", "美元兌台幣匯率", "Europe/London"),
