@@ -9,6 +9,7 @@ from flask_wtf.csrf import CSRFProtect
 from flask_talisman import Talisman
 from werkzeug.exceptions import HTTPException
 from config import DevelopmentConfig, ProductionConfig
+from app.extensions import talisman, csrf
 
 # from flask_compress import Compress
 
@@ -142,47 +143,28 @@ def create_app(config_name: str | None = None) -> Flask:
         raise ValueError(f"未知的 FLASK_ENV: {config_name}")
 
     # 設定主程式
-    app = Flask(__name__, template_folder="templates", static_folder="static", instance_relative_config=True)
+    app = Flask(
+        __name__,
+        template_folder="templates",
+        static_folder="static",
+        instance_relative_config=True,
+    )
     app.config.from_object(config[config_name])
     config[config_name].init_app(app)
 
     # https://flask.palletsprojects.com/en/stable/api/#flask.json.provider.DefaultJSONProvider.ensure_ascii
-    app.json.ensure_ascii = False  # type: ignore
+    app.json.ensure_ascii = False
 
     # https://flask-wtf.readthedocs.io/en/1.2.x/csrf/
-    CSRFProtect(app)
+    csrf.init_app(app)
 
     # https://github.com/GoogleCloudPlatform/flask-talisman
-    csp = {
+    # 預設 CSP。各別 Blueprint 可透過 @talisman 裝飾器覆寫。
+    default_csp = {
         "default-src": ["'self'"],
-        "script-src": [
-            "'self'",
-            "https://cdn.jsdelivr.net",
-            "https://cdn.bokeh.org",
-            "'unsafe-inline'",
-            "'unsafe-eval'",
-        ],
-        "style-src": [
-            "'self'",
-            "https://cdn.jsdelivr.net",
-            "https://cdnjs.cloudflare.com",
-            "https://cdn.bokeh.org",
-            "'unsafe-inline'",
-        ],
-        "connect-src": [
-            "'self'",
-            "https://cdn.jsdelivr.net",
-            "https://cdn.bokeh.org",
-        ],
-        "img-src": [
-            "'self'",
-            "data:",
-        ],
-        "font-src": [
-            "https://cdnjs.cloudflare.com",
-        ],
+        "object-src": ["'none'"],
     }
-    Talisman(app, content_security_policy=csp)
+    talisman.init_app(app, content_security_policy=default_csp)
 
     # https://github.com/colour-science/flask-compress
     # Compress(app)
